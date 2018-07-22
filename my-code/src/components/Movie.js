@@ -17,14 +17,14 @@ class Movie extends PureComponent {
     }
 
     render(){
-        let { title, year, poster } = this.props 
+        let { title, year, poster, id } = this.props 
         return(
           <MovieContainer 
             style={{backgroundImage: `url(${poster})`}}
             onMouseEnter={this.handleHover}
             onMouseLeave={this.handleHover}
           >
-            <Link to='/test'>
+            <Link to={`/${id}`}>
               {this.state.overlayEnabled 
                 ? <Overlay>
                     <OverlayDescription>
@@ -44,7 +44,8 @@ class Movie extends PureComponent {
 Movie.propTypes = {
     title: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired
+    poster: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
 }
 const MovieContainer = styled.div`{
     border-radius: 5px;

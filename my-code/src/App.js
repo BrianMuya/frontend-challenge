@@ -13,8 +13,8 @@ class App extends PureComponent {
       <Router>
         <div>
           <Switch>
-            <Route path='/' exact render={ () => <Home /> } />
-            <Route path='/movie' render={ () => <MoviePage /> } />
+            <Route path='/' exact component={Home} />
+            <Route path='/:movieID' component={MoviePage} />
           </Switch>
         </div>
       </Router>

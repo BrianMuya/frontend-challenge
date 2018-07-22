@@ -12,6 +12,7 @@ class MovieList extends PureComponent {
                 title: movie.Title,
                 year: movie.Year,
                 poster: movie.Poster,
+                id: movie.imdbID,
                 key: movie.imdbID
             }
             return <Movie {...props} />
