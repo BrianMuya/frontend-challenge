@@ -8,10 +8,11 @@ class Home extends PureComponent {
         this.state = {
             movieList: [],
             searchError: null,
+            error: false,
             fetchingMovies: false
         }
     }
-    
+
     fetchMovies = (searchTerm) => {
         fetch(`http://www.omdbapi.com/?apikey=e8a1cf04&s=${searchTerm}`)
         .then(res => {
@@ -29,11 +30,13 @@ class Home extends PureComponent {
             this.setState({ 
               movieList: data.Search,
               searchError: null,
+              error: false,
               fetchingMovies: false
             })
         }).catch((err) => {
             this.setState({ 
                 searchError: err,
+                error: true,
                 fetchingMovies: false
             })
         })
@@ -52,7 +55,7 @@ class Home extends PureComponent {
         return(
             <div>
               <Search handleOnChange={this.handleSearchSubmited} />
-              <MovieList loading={this.state.fetchingMovies} movies={this.state.movieList} />
+              <MovieList error={this.state.error} errorMessage={this.state.searchError} loading={this.state.fetchingMovies} movies={this.state.movieList} />
             </div>
         )
     }

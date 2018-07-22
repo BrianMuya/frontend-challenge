@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { spacerTopSmall } from '../styles/main'
+import { spacerTopSmall, primaryWhite } from '../styles/main'
 import Movie from './Movie'
 import Loader from '../components/Loader'
 
@@ -20,7 +20,10 @@ class MovieList extends PureComponent {
         })
         let content = null
         let grid = <MovieGrid> {movies} </MovieGrid>
+        let error = <ErrorMessage>{ this.props.error ? this.props.errorMessage: null }</ErrorMessage>
         this.props.loading ? content = <Loader /> : content = grid
+        this.props.error ? content = error : null
+
         return(
           <div>
               {content}
@@ -30,7 +33,9 @@ class MovieList extends PureComponent {
 }
 
 MovieList.propTyps = {
-    movies: PropTypes.array
+    movies: PropTypes.array,
+    error: PropTypes.string,
+    loading: PropTypes.bool.isRequired
 }
 
 const MovieGrid = styled.div`{
@@ -40,6 +45,16 @@ const MovieGrid = styled.div`{
     grid-template-rows: auto;
     justify-items: center;
     grid-row-gap: 3rem;
+}`
+
+const ErrorMessage = styled.h1`{
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.5rem;
+    display: block;
+    margin-top: 5rem;
+    text-align: center;
+    color: ${primaryWhite};
 }`
 export default MovieList
 

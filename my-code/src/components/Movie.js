@@ -17,7 +17,9 @@ class Movie extends PureComponent {
     }
 
     render(){
-        let { title, year, poster, id } = this.props 
+        let { title, year, poster, id } = this.props
+        // I would look for a better way to handle this other than a string literal
+        poster === 'N/A' ? poster = 'http://via.placeholder.com/150x180' : null
         return(
           <MovieContainer 
             style={{backgroundImage: `url(${poster})`}}
