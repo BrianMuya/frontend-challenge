@@ -109,11 +109,18 @@ const MovieDetails = styled.div`{
     grid-column: 1 / 4; 
     font-weight: 600;
     font-size: 2rem;
+    @media (max-width: 500px) {
+        margin-bottom: 5rem;   
+    }
 }`
 
 const PosterContainer = styled.div`{
     grid-row: 2 / 5;
     grid-column: 4 / -1;
+    @media (max-width: 500px) {
+        grid-row: 3 / 6;
+        grid-column: 1 / -1;
+    }
 }`
 
 const Poster = styled.img`{
@@ -131,12 +138,18 @@ const Title = styled.h1`{
     grid-column: 1 / 4; 
     letter-spacing: 0.5rem;
     color: ${primaryWhite};
+    @media (max-width: 500px) {
+        grid-column: 1 / -1; 
+    }
 }`
 
 const Text = styled.div`{
     font-size: 2rem;
     color: ${primaryWhite};
     font-weight: 100;
+    @media (max-width: 500px) {
+        grid-column: 1 / -1;  
+    }
 }`
 
 const Plot = styled.div`{

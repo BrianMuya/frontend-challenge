@@ -42,6 +42,15 @@ const MovieGrid = styled.div`{
     grid-template-rows: auto;
     justify-items: center;
     grid-row-gap: 3rem;
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    @media (max-width: 800px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width: 500px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }`
 
 const ErrorMessage = styled.h1`{

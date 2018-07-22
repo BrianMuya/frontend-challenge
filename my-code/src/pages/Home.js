@@ -37,6 +37,7 @@ class Home extends PureComponent {
             this.setState({ 
                 searchError: err,
                 error: true,
+                movieList: [],
                 fetchingMovies: false
             })
         })
