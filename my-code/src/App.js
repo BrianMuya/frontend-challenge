@@ -1,6 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import { injectGlobal } from 'styled-components'
 
-class App extends Component {
+import { primaryColor, primaryWhite } from './styles/main'
+
+
+class App extends PureComponent {
   render() {
     return (
       <div className="App">
@@ -14,5 +18,18 @@ class App extends Component {
     )
   }
 }
+
+injectGlobal`
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,600,900);
+
+  body {
+    padding: 0;
+    margin: 0;
+    border-sizing: border-box;
+    background-color: ${primaryColor};
+    font-family: Roboto, sans-serif;
+    color: ${primaryWhite};
+  }
+`
 
 export default App;
