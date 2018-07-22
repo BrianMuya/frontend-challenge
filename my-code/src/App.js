@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { injectGlobal } from 'styled-components'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './pages/Home'
 import MoviePage from './pages/MoviePage'
 
@@ -12,8 +12,10 @@ class App extends PureComponent {
     return (
       <Router>
         <div>
-          <Route path='/' exact render={ () => <Home /> } />
-          <Route path='/movie' render={ () => <MoviePage /> } />
+          <Switch>
+            <Route path='/' exact render={ () => <Home /> } />
+            <Route path='/movie' render={ () => <MoviePage /> } />
+          </Switch>
         </div>
       </Router>
     )

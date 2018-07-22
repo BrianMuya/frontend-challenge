@@ -2,6 +2,10 @@ export const primaryColor = '#0A1014'
 export const primaryWhite = '#fff'
 export const grey = '#1B2329'
 
+export const spacerTopSmall = () => (`
+  margin-top: 10rem;
+`)
+
 export const transformCenter = () => (`
   position: relative;
   top: 50%;

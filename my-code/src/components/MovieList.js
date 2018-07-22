@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { spacerTopSmall } from '../styles/main'
 import Movie from './Movie'
 
 class MovieList extends PureComponent {
@@ -16,9 +17,9 @@ class MovieList extends PureComponent {
             return <Movie {...props} />
         })
         return(
-            <div>
+            <MovieGrid>
                 {movies}
-            </div>
+            </MovieGrid>
         )
     }
 }
@@ -26,5 +27,14 @@ class MovieList extends PureComponent {
 MovieList.propTyps = {
     movies: PropTypes.array
 }
+
+const MovieGrid = styled.div`{
+    ${spacerTopSmall}
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+    justify-items: center;
+    grid-row-gap: 3rem;
+}`
 export default MovieList
 

@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components'
-import { grey } from '../styles/main'
+import {grey} from '../styles/main'
 
 class Movie extends PureComponent {
     constructor(props){
@@ -23,16 +24,18 @@ class Movie extends PureComponent {
             onMouseEnter={this.handleHover}
             onMouseLeave={this.handleHover}
           >
-            {this.state.overlayEnabled 
-              ? <Overlay>
-                  <OverlayDescription>
-                    {title}
-                    <OverlayYear>
-                      {year}
-                    </OverlayYear>
-                  </OverlayDescription>
-                </Overlay>
-              : null}
+            <Link to='/test'>
+              {this.state.overlayEnabled 
+                ? <Overlay>
+                    <OverlayDescription>
+                      {title}
+                      <OverlayYear>
+                        {year}
+                      </OverlayYear>
+                    </OverlayDescription>
+                  </Overlay>
+                : null}
+            </Link>
           </MovieContainer>
         )
     }
@@ -47,8 +50,8 @@ const MovieContainer = styled.div`{
     border-radius: 5px;
     background-size: cover;
     background-position: top;
-    width: 13rem;
-    height: 15rem;
+    width: 15rem;
+    height: 18rem;
     transition: all .5s;
     &:hover{
         cursor: pointer;
@@ -67,13 +70,16 @@ const OverlayDescription = styled.span`{
     font-size: 1.5rem;
     font-weight: 400;
     display: block;
-    top: 55%;
+    top: 65%;
+    left: 5%;
 }`
 
 const OverlayYear = styled.span`{
     display: block;
     font-size: 1.3rem;
     padding-top: 0.5rem;
+    top: 90%;
     font-weight: 100;
 }`
+
 export default Movie
