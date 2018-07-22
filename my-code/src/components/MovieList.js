@@ -9,6 +9,7 @@ class MovieList extends PureComponent {
 
     render() {
         let movies = this.props.movies.map((movie)=>{
+            console.log(movie.Poster)
             const props = {
                 title: movie.Title,
                 year: movie.Year,
@@ -18,15 +19,11 @@ class MovieList extends PureComponent {
             }
             return <Movie {...props} />
         })
-        let content = null
-        let grid = <MovieGrid> {movies} </MovieGrid>
-        let error = <ErrorMessage>{ this.props.error ? this.props.errorMessage: null }</ErrorMessage>
-        this.props.loading ? content = <Loader /> : content = grid
-        this.props.error ? content = error : null
-
+        let { error, errorMessage, loading } = this.props
         return(
           <div>
-              {content}
+              { error ? <ErrorMessage> {errorMessage} </ErrorMessage> : null }
+              { loading ? <Loader /> : <MovieGrid>{movies}</MovieGrid> }
           </div> 
         )
     }

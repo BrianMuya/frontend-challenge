@@ -55,7 +55,11 @@ class Home extends PureComponent {
         return(
             <div>
               <Search handleOnChange={this.handleSearchSubmited} />
-              <MovieList error={this.state.error} errorMessage={this.state.searchError} loading={this.state.fetchingMovies} movies={this.state.movieList} />
+              <MovieList 
+                error={this.state.error} 
+                errorMessage={this.state.searchError} 
+                loading={this.state.fetchingMovies} 
+                movies={this.state.movieList} />
             </div>
         )
     }

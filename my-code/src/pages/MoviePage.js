@@ -50,43 +50,45 @@ class MoviePage extends PureComponent {
     }
 
     render(){
-        return(
+        let { runtime, year, rating, title, plot, poster, cast, genre, director} = this.state
+        poster === 'N/A' ? poster = 'http://via.placeholder.com/1024x1024': null
+        return( 
             <StyledContainer>
               <StyledLink to='/'>
                 <i className="fa fa-long-arrow-left" style={{fontSize: '36px'}}></i>
               </StyledLink>
               <MovieDetails>
-                {this.state.runtime} - {this.state.year} - {this.state.rating} 
+                {runtime} - {year} - {rating} 
               </MovieDetails>
               <Title>
-                {this.state.title}
+                {title}
                 <Plot>
                   <Heading>
                       Plot
                   </Heading>
-                {this.state.plot}
+                {plot}
               </Plot>
               </Title>
               <PosterContainer>
-                  <Poster src={this.state.poster}alt='poster'/>
+                  <Poster src={poster} alt='poster'/>
               </PosterContainer>
               <Text>
                   <Heading>
                       Cast
                   </Heading>
-                {this.state.cast}
+                {cast}
               </Text>
               <Text>
                   <Heading>
                       Genre
                   </Heading>
-                {this.state.genre}
+                {genre}
               </Text>
               <Text>
                   <Heading>
                       Director
                   </Heading>
-                {this.state.director}
+                {director}
               </Text>
             </StyledContainer>
         )
