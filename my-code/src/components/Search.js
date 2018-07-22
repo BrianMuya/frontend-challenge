@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { transformCenter, spacerTopSmall } from '../styles/main'
 
 const Search = ({ handleOnChange }) => (
-    <Input type='text' placeholder='Search movies' onChange={handleOnChange} />
+    <Input type='text' placeholder='Search' onChange={handleOnChange} />
 )
  
 Search.propTypes = {
@@ -17,6 +17,8 @@ const Input = styled.input`{
     border-radius: 5px;
     ${spacerTopSmall}
     padding-top: 12px;
+    padding-right: 12px;
+    padding-left: 16px;
     padding-bottom: 12px;
     ${transformCenter()}
 }`

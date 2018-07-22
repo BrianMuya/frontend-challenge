@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { grey } from '../styles/main'
+import { grey, primaryWhite } from '../styles/main'
 
 class Movie extends PureComponent {
     constructor(props){
@@ -24,7 +24,7 @@ class Movie extends PureComponent {
             onMouseEnter={this.handleHover}
             onMouseLeave={this.handleHover}
           >
-            <Link to={`/${id}`}>
+            <StyledLink to={`/${id}`}>
               {this.state.overlayEnabled 
                 ? <Overlay>
                     <OverlayDescription>
@@ -35,7 +35,7 @@ class Movie extends PureComponent {
                     </OverlayDescription>
                   </Overlay>
                 : null}
-            </Link>
+            </StyledLink>
           </MovieContainer>
         )
     }
@@ -81,6 +81,11 @@ const OverlayYear = styled.span`{
     padding-top: 0.5rem;
     top: 90%;
     font-weight: 100;
+}`
+
+const StyledLink = styled(Link)`{
+    text-decoration: none;
+    color: ${primaryWhite};
 }`
 
 export default Movie

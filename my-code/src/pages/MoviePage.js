@@ -52,9 +52,9 @@ class MoviePage extends PureComponent {
     render(){
         return(
             <StyledContainer>
-              <Link to='/' style={{textDecoration:'none'}}>
+              <StyledLink to='/'>
                 <i className="fa fa-long-arrow-left" style={{fontSize: '36px'}}></i>
-              </Link>
+              </StyledLink>
               <MovieDetails>
                 {this.state.runtime} - {this.state.year} - {this.state.rating} 
               </MovieDetails>
@@ -150,5 +150,11 @@ const Heading = styled.span`{
     color: ${midGrey};
     font-weight: 600;
     margin-bottom: 1rem;
+}`
+
+const StyledLink = styled(Link)`{
+    text-decoration: none;
+    color: ${midGrey};
+    margin-bottom: 5rem;
 }`
 export default MoviePage
