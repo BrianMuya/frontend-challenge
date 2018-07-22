@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import Movie from './Movie'
 
 class MovieList extends PureComponent {
@@ -15,12 +17,14 @@ class MovieList extends PureComponent {
         })
         return(
             <div>
-                Movie container
                 {movies}
             </div>
         )
     }
 }
 
+MovieList.propTyps = {
+    movies: PropTypes.array
+}
 export default MovieList
 

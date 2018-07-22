@@ -40,7 +40,6 @@ class Home extends PureComponent {
         return(
             <div>
               <Search handleOnChange={this.handleSearchSubmited} />
-              Home Page
               <MovieList movies={this.state.movieList} />
             </div>
         )
