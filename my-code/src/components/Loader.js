@@ -3,8 +3,7 @@ import styled , { keyframes } from 'styled-components'
 import { red } from '../styles/main';
 
 const Loader = () => (
-    <LoaderContainer>
-    </LoaderContainer>
+    <LoaderContainer />
 )
 const spin = keyframes`
   to {

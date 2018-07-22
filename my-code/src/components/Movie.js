@@ -31,10 +31,10 @@ class Movie extends PureComponent {
                 ? <Overlay>
                     <OverlayDescription>
                       {title}
-                      <OverlayYear>
-                        {year}
-                      </OverlayYear>
                     </OverlayDescription>
+                    <OverlayYear>
+                        {year}
+                    </OverlayYear>
                   </Overlay>
                 : null}
             </StyledLink>
@@ -64,6 +64,7 @@ const MovieContainer = styled.div`{
 const Overlay = styled.div`{
     height: 100%;
     width: 100%;
+    position: relative;
     background-color: ${grey};
     opacity: 0.7;
 }`
@@ -74,14 +75,16 @@ const OverlayDescription = styled.span`{
     font-weight: 400;
     display: block;
     top: 65%;
-    left: 5%;
+    left: 2%;
 }`
 
 const OverlayYear = styled.span`{
     display: block;
     font-size: 1.3rem;
+    position: absolute;
     padding-top: 0.5rem;
-    top: 90%;
+    left: 2%;
+    top: 85%;
     font-weight: 100;
 }`
 
