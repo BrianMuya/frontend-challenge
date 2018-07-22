@@ -24,6 +24,7 @@ class App extends PureComponent {
 
 injectGlobal`
   @import url(https://fonts.googleapis.com/css?family=Roboto:100,400,600,900);
+  @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 
   body {
     padding: 0;

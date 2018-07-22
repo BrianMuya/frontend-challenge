@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {transformCenter, spacerTopSmall} from '../styles/main'
+import { transformCenter, spacerTopSmall } from '../styles/main'
 
 const Search = ({ handleOnChange }) => (
     <Input type='text' placeholder='Search movies' onChange={handleOnChange} />

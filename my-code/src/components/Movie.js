@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import {grey} from '../styles/main'
+import { grey } from '../styles/main'
 
 class Movie extends PureComponent {
     constructor(props){
