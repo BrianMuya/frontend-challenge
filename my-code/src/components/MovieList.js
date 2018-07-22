@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { spacerTopSmall } from '../styles/main'
 import Movie from './Movie'
+import Loader from '../components/Loader'
 
 class MovieList extends PureComponent {
 
@@ -17,10 +18,13 @@ class MovieList extends PureComponent {
             }
             return <Movie {...props} />
         })
+        let content = null
+        let grid = <MovieGrid> {movies} </MovieGrid>
+        this.props.loading ? content = <Loader /> : content = grid
         return(
-            <MovieGrid>
-                {movies}
-            </MovieGrid>
+          <div>
+              {content}
+          </div> 
         )
     }
 }

@@ -7,40 +7,52 @@ class Home extends PureComponent {
         super(props)
         this.state = {
             movieList: [],
-            searchError: null
+            searchError: null,
+            fetchingMovies: false
         }
     }
+    
+    fetchMovies = (searchTerm) => {
+        fetch(`http://www.omdbapi.com/?apikey=e8a1cf04&s=${searchTerm}`)
+        .then(res => {
+            if (res.status !== 200) {
+              let message = 'Search error'
+              throw message
+            }
+            return res.json()
+        })
+        .then(data => {
+            if (data.Response === 'False') {
+              let message = 'Please try again with a more specific search term'
+              throw message
+            }
+            this.setState({ 
+              movieList: data.Search,
+              searchError: null,
+              fetchingMovies: false
+            })
+        }).catch((err) => {
+            this.setState({ 
+                searchError: err,
+                fetchingMovies: false
+            })
+        })
+    }
+
     handleSearchSubmited = (e) => {
         // I understand putting the api key on the client side like this is not the norm
         // I would normaly import this from an external file that I would then git ignore
         let searchTerm = e.target.value
-        fetch(`http://www.omdbapi.com/?apikey=e8a1cf04&s=${searchTerm}`)
-          .then(res => {
-              if (res.status !== 200) {
-                let message = 'Search error'
-                throw message
-              }
-              return res.json()
-          })
-          .then(data => {
-              if (data.Response === 'False') {
-                let message = 'Please try again with a more specific search term'
-                throw message
-              }
-              this.setState({ 
-                movieList: data.Search,
-                searchError: null
-              })
-          }).catch((err) => {
-              this.setState({ searchError: err })
-          })
+        this.setState({ fetchingMovies: true}, () => {
+            this.fetchMovies(searchTerm)
+        })
     }
 
     render(){
         return(
             <div>
               <Search handleOnChange={this.handleSearchSubmited} />
-              <MovieList movies={this.state.movieList} />
+              <MovieList loading={this.state.fetchingMovies} movies={this.state.movieList} />
             </div>
         )
     }
