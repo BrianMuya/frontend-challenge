@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react'
 import { injectGlobal } from 'styled-components'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import MoviePage from './pages/MoviePage'
 
 import { primaryColor, primaryWhite } from './styles/main'
 
@@ -7,14 +10,12 @@ import { primaryColor, primaryWhite } from './styles/main'
 class App extends PureComponent {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div>
+          <Route path='/' exact render={ () => <Home /> } />
+          <Route path='/movie' render={ () => <MoviePage /> } />
+        </div>
+      </Router>
     )
   }
 }
