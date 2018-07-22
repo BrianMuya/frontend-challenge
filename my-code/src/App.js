@@ -21,7 +21,7 @@ class App extends PureComponent {
 }
 
 injectGlobal`
-  @import url(https://fonts.googleapis.com/css?family=Roboto:400,600,900);
+  @import url(https://fonts.googleapis.com/css?family=Roboto:100,400,600,900);
 
   body {
     padding: 0;
@@ -30,6 +30,13 @@ injectGlobal`
     background-color: ${primaryColor};
     font-family: Roboto, sans-serif;
     color: ${primaryWhite};
+  }
+
+  html {
+      font-size: 62.5%;
+      @media (max-width: 600px) {
+        font-size: 45%;
+      }
   }
 `
 

@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react'
 import Search from '../components/Search'
+import MovieList from '../components/MovieList'
 
 class Home extends PureComponent {
     constructor(props){
         super(props)
         this.state = {
             movieList: [],
-            searchError: ''
+            searchError: null
         }
     }
     handleSearchSubmited = (e) => {
@@ -26,9 +27,12 @@ class Home extends PureComponent {
                 let message = 'Please try again with a more specific search term'
                 throw message
               }
-              this.setState({movieList: data.Search})
+              this.setState({ 
+                movieList: data.Search,
+                searchError: null
+              })
           }).catch((err) => {
-              this.setState({searchError: err})
+              this.setState({ searchError: err })
           })
     }
 
@@ -37,6 +41,7 @@ class Home extends PureComponent {
             <div>
               <Search handleOnChange={this.handleSearchSubmited} />
               Home Page
+              <MovieList movies={this.state.movieList} />
             </div>
         )
     }
